@@ -1,0 +1,5 @@
+#
+# openbox autostart
+#
+
+( sleep 3s && exec tint2 -c /etc/xdg/tint2/tint2rc.custom ) &
