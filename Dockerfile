@@ -1,9 +1,6 @@
 FROM ubuntu:16.04
 LABEL authors="Attila Bogár <attila.bogar@gmail.com>"
 
-# uid
-ENV USERID 1000
-
 RUN  echo "deb http://archive.ubuntu.com/ubuntu xenial main universe\n" > /etc/apt/sources.list \
   && echo "deb http://archive.ubuntu.com/ubuntu xenial-updates main universe\n" >> /etc/apt/sources.list \
   && echo "deb http://security.ubuntu.com/ubuntu xenial-security main universe\n" >> /etc/apt/sources.list
@@ -32,6 +29,9 @@ RUN dpkg --add-architecture i386
 
 # EAC requirement
 RUN mkdir /cdrom && echo '/dev/sr0 /cdrom iso9660 noauto 0 0' >> /etc/fstab
+
+# uid
+ENV USERID 1000
 
 # setup user + passwordless sudo
 RUN useradd user \
