@@ -1,0 +1,10 @@
+---
+services:
+  - docker
+install:
+  - docker build -t docker-eac .
+  - docker run -d -p 5911:5999 -e NODE=travis-ci --name docker-eac docker-eac
+script:
+  - docker ps | grep -q docker-eac
+  - docker logs docker-eac
+  - "sleep 15 && timeout 1 bash -c ': < /dev/tcp/127.0.0.1/5911' || exit 1"
