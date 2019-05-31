@@ -4,7 +4,7 @@ services:
   - docker
 install:
   - docker build -t docker-eac .
-  - docker run -d -p 5911:5999 -e NODE=travis-ci --name docker-eac docker-eac
+  - docker run -d -p 5911:5999 -e NODE=travis-ci -e UID=1000 -e GID=1000 --name docker-eac docker-eac
 script:
   - docker ps | grep -q docker-eac
   - docker logs docker-eac
