@@ -25,13 +25,7 @@ system w/ multiple CD-ROM drives.
   - `Dockerfile` (used to build the base image w/ wine support)
   - `drives.txt.example` (an example CD-ROM drive setup)
   - `eac.sh` (shell script to bring up / destroy the eac stack)
-  - make sure you are member of the `cdrom` system group
-
-### Dockerfile
-
-  - `USERID` (1001 by default)
-  - `SCREEN_WIDTH` (1920 by default)
-  - `SCREEN_HEIGHT` (1080 by default)
+  - user access required to `/dev/sr*` CD-ROM drive devices
 
 ### drives.txt
 
@@ -45,6 +39,8 @@ as `drives.txt.example`. To find the available CD-ROM drives run `ls -l
 To customise `eac.sh`, edit and set
   - `WDIR` - the root directory for each CD-ROM drive' `WINEPREFIX`
   - `SHARE` - the directory to map under `/data` in the containers
+  - `SCREEN_WIDTH` - VNC screen width (1920 by default)
+  - `SCREEN_HEIGHT` - VNC screen height (1080 by default)
 
 ### WINE/EAC Setup
 

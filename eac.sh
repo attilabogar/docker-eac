@@ -1,10 +1,14 @@
 #!/bin/bash
 set -euo pipefail
 
+# customization BEGIN
 DRIVECFG=./drives.txt
 DCFG=./eac.yml
 WDIR=$HOME/wine
 SHARE=/scratch/CD
+SCREEN_WIDTH=1920
+SCREEN_HEIGHT=1080
+# customization END
 
 function gen_header() {
 cat <<EOD
@@ -25,6 +29,10 @@ cat <<EOD
       - $vnc:5999
     environment:
       - NODE=$drivename
+      - SCREEN_WIDTH=$SCREEN_WIDTH
+      - SCREEN_HEIGHT=$SCREEN_HEIGHT
+      - UID=$(id -u)
+      - GID=$(id -g)
     devices:
       - "$sr:/dev/sr0:rwm"
     volumes:
@@ -78,7 +86,7 @@ then
   docker-compose -f "$DCFG" -p eac down && rm -f "$DCFG"
 else
   rm -f "$DCFG"
-  echo "No CD drives found!"
+  echo "No CD-ROM drives found!"
 fi
 
 echo "GOOD BYE!"

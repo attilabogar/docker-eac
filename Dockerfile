@@ -30,18 +30,6 @@ RUN dpkg --add-architecture i386
 # EAC requirement
 RUN mkdir /cdrom && echo '/dev/sr0 /cdrom iso9660 noauto 0 0' >> /etc/fstab
 
-# uid
-ENV USERID 1000
-
-# setup user + passwordless sudo
-RUN useradd user \
-         --shell /bin/bash  \
-         --create-home \
-         --uid $USERID \
-  && usermod -a -G sudo user \
-  && echo 'ALL ALL = (ALL) NOPASSWD: ALL' >> /etc/sudoers \
-  && echo 'user:user' | chpasswd
-
 # set up X over VNC
 RUN apt-get update -qqy \
   && apt-get -qqy install \
@@ -86,31 +74,6 @@ COPY tint2/tint2rc.custom /etc/xdg/tint2/
 
 # entry point
 COPY entry_point.sh /
-
-# Run the following commands as non-privileged user
-WORKDIR /home/user
-USER user
-
-# screen size
-ENV SCREEN_WIDTH 1920
-ENV SCREEN_HEIGHT 1080
-ENV SCREEN_DEPTH 24
-ENV DISPLAY :99.0
-
-# dbus fix
-ENV DBUS_SESSION_BUS_ADDRESS /dev/null
-
-# wine prefix
-ENV WINEPREFIX /srv/wine
-
-
-# setup prompt
-RUN echo 'export PS1="[$NODE \W]\$"' >> /home/user/.profile
-
-# PATH
-ENV PATH="/opt/wine-stable/bin:${PATH}"
-
-# homedir
-ENV HOME /home/user
+COPY session.sh /
 
 CMD ["/entry_point.sh"]
