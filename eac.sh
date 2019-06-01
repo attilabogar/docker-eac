@@ -23,7 +23,6 @@ function gen_drive() {
 cat <<EOD
 # $driveid
   $drivename:
-    build: .
     image: "attilabogar/docker-eac:latest"
     ports:
       - $vnc:5999

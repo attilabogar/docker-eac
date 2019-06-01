@@ -19,13 +19,12 @@ system w/ multiple CD-ROM drives.
   - docker
   - docker-compose
   - system w/ one or more CD-ROM drives
+  - access to `/dev/sr*` block devices
 
 ## Setup
 
-  - `Dockerfile` (used to build the base image w/ wine support)
   - `drives.txt.example` (an example CD-ROM drive setup)
   - `eac.sh` (shell script to bring up / destroy the eac stack)
-  - user access required to `/dev/sr*` CD-ROM drive devices
 
 ### drives.txt
 
