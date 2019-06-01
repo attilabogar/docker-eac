@@ -38,7 +38,7 @@ as `drives.txt.example`. To find the available CD-ROM drives run `ls -l
 
 To customise `eac.sh`, edit and set
   - `WDIR` - the root directory for each CD-ROM drive' `WINEPREFIX`
-  - `SHARE` - the directory to map under `/data` in the containers
+  - `SHARE` - the directory to map as `/data` in the containers
   - `SCREEN_WIDTH` - VNC screen width (1920 by default)
   - `SCREEN_HEIGHT` - VNC screen height (1080 by default)
 
