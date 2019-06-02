@@ -32,7 +32,7 @@ cat <<EOD
       - "$sr:/dev/sr0:rwm"
     volumes:
      - $SHARE:/data
-     - $WDIR/$drivename:/srv/wine
+     - $WINEROOT/$drivename:/srv/wine
 
 EOD
 }
@@ -72,7 +72,7 @@ do
     vnc=$[5900+port]
     gen_drive >> "$COMPOSEFILE"
     port=$[port+1]
-    mkdir -p "$WDIR/$drivename"
+    mkdir -p "$WINEROOT/$drivename"
   fi
 done < "$DRIVECFG"
 
