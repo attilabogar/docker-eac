@@ -1,6 +1,6 @@
 # docker-eac
 
-Exact Audio Copy (EAC) w/ Docker
+Exact Audio Copy (EAC) in Docker
 
 [![Build Status][1]][2]
 
@@ -23,8 +23,8 @@ system w/ multiple CD-ROM drives.
 
 ## Setup
 
-  - `drives.txt.example` (an example CD-ROM drive setup)
-  - `eac.sh` (shell script to bring up / destroy the eac stack)
+  - `eac.rc` settings for docker-eac (see example file `eac.rc.example`)
+  - `drives.txt` CD-ROM static drive mapping (see example file `drives.txt.example`)
 
 ### drives.txt
 
@@ -33,10 +33,13 @@ format `<drivename> <drivemapping>`.  An example configuration file is provided
 as `drives.txt.example`. To find the available CD-ROM drives run `ls -l
 /dev/disk/by-id/`
 
+Keeping CD-ROM mapping in `drives.txt` keeps the drive mapping consistent, even
+if `/dev/sr*` block device numbering order changes.
+
 ### eac.rc
 
 To customise `eac.rc`, edit and set
-  - `WDIR` - the root directory for each CD-ROM drive's `WINEPREFIX`
+  - `WINEROOT` - the root directory for each CD-ROM drive's `WINEPREFIX` environment
   - `SHARE` - the directory to map as `/data` in the containers
   - `SCREEN_WIDTH` - VNC screen width (1920 by default)
   - `SCREEN_HEIGHT` - VNC screen height (1080 by default)
