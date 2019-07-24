@@ -73,7 +73,7 @@ COPY openbox/autostart openbox/menu.xml \
 COPY tint2/tint2rc.custom /etc/xdg/tint2/
 
 # entry point
-COPY entry_point.sh /
+COPY entrypoint.sh /
 COPY session.sh /
 
-CMD ["/entry_point.sh"]
+CMD ["/entrypoint.sh"]
