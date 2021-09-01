@@ -71,7 +71,7 @@ do
     i=$[i+1]
     sr=$(readlink -f "/dev/disk/by-id/$driveid")
     drivename=$(tr A-Z a-z <<< $drivename)
-    echo "$(hostname --fqdn):$port $drivename" >> $vnctmp
+    echo ":$port $drivename" >> $vnctmp
     vnc=$[5900+port]
     gen_drive >> "$COMPOSEFILE"
     port=$[port+1]
