@@ -59,7 +59,7 @@ then
   docker-compose -f "$COMPOSEFILE" -p eac down || :
 fi
 
-port=11
+port=1
 gen_header > "$COMPOSEFILE"
 vnctmp=$(mktemp)
 declare -i i=0
