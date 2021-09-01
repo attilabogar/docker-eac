@@ -2,11 +2,11 @@
 set -euxo pipefail
 
 function setup_user() {
-  groupadd --gid $GID user
+  groupadd --non-unique --gid $GID user
   useradd user \
          --shell /bin/bash  \
          --create-home \
-         --uid $UID --gid $GID
+         --non-unique --uid $UID --gid $GID
   usermod -a -G sudo user
   echo 'Defaults env_keep += "NODE SCREEN_WIDTH SCREEN_HEIGHT"' >> /etc/sudoers
   echo 'ALL ALL = (ALL) NOPASSWD: ALL' >> /etc/sudoers
