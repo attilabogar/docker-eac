@@ -19,7 +19,7 @@ function gen_drive() {
 cat <<EOD
 # $driveid
   $drivename:
-    image: docker.eac:v1.0
+    image: docker-eac:v1.1.0
     build:
       context: .
     ports:

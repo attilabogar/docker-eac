@@ -49,15 +49,15 @@ To customise `eac.rc`, edit and set
 This part is only needed for the first time per each CD-ROM drive
 
   - open terminal and execute: `winecfg`
+    - don't install mono
+    - don't install gecko
     - on the Drives tab, add `D:` drive:
       - Path: `/cdrom`
       - Type: `CD-ROM` (Advanced)
       - click apply and OK
-  - copy `eac-1.3.exe` to `SHARE`
-  - open terminal and execute: `wine /data/eac-1.3.exe` 
+  - copy `eac-1.6.exe` to `SHARE`
+  - open terminal and execute: `wine /data/eac-1.6.exe`
   - install EAC
-    - don't install mono
-    - don't install gecko
     - install these two plugins only:
       - FLAC
       - AccurateRip
@@ -81,7 +81,7 @@ lightweight window manager.  Right mouse click to access the menu.
 
     MIT License
 
-    Copyright (c) 2019 Attila Bogár
+    Copyright (c) 2019,2021,2022 Attila Bogár
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
