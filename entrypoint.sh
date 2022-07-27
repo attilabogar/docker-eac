@@ -12,6 +12,7 @@ function setup_user() {
   echo 'ALL ALL = (ALL) NOPASSWD: ALL' >> /etc/sudoers
   echo 'user:user' | chpasswd
   echo 'export PS1="[$NODE \W]\$"' >> /home/user/.profile
+  echo 'export PATH="/opt/wine-stable/bin:${PATH}"' >> /home/user/.profile
 }
 
 getent passwd user > /dev/null || setup_user
