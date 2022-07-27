@@ -2,12 +2,6 @@
 
 Exact Audio Copy (EAC) in Docker
 
-[![Build Status][1]][2]
-
-[1]: https://travis-ci.org/attilabogar/docker-eac.svg?branch=master
-[2]: https://travis-ci.org/attilabogar/docker-eac
-
-
 ## Description
 
 This project can be used to simultaneously transfer Audio CD's using [Exact
